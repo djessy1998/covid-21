@@ -49,6 +49,27 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return usersRepository.save(user);
 	}
 
+	public void changeUsername(User user, String username){
+		// TODO : vérifier que le username n'existe pas déjà
+		user.setUsername(username);
+		usersRepository.save(user);
+	}
+
+	public void changeFirstName(User user, String firstname){
+		user.setFirstName(firstname);
+		usersRepository.save(user);
+	}
+
+	public void changeLastName(User user, String lastname){
+		user.setLastName(lastname);
+		usersRepository.save(user);
+	}
+
+	public void changePassword(User user, String password){
+		user.setPassword(bCryptPasswordEncoder.encode(password));
+		usersRepository.save(user);
+	}
+
 	public boolean checkIfUserExist(String email) {
 		return usersRepository.findUser(email) != null;
 	}
@@ -56,7 +77,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		List<User> userList = usersRepository.findUser(userName);
-
+		
 		if (userList != null && userList.size() == 1) {
 			User user = userList.get(0);
 			Set<Role> roleList = new HashSet<>(user.getRoles());

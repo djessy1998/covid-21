@@ -2,6 +2,7 @@ package com.covid.covid.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -30,6 +31,9 @@ public class MapController {
 
 	@RequestMapping("/profile")
 	public ModelAndView profile() { return new ModelAndView("profile"); }
+
+	@RequestMapping("/modifyprofile")
+	public ModelAndView modifyprofile() { return new ModelAndView("modifyprofile"); }
 
 	@RequestMapping("/addfriend")
 	public ModelAndView addfriend() { return new ModelAndView("addfriend"); }
