@@ -31,6 +31,9 @@ public class MapController {
 	@RequestMapping("/profile")
 	public ModelAndView profile() { return new ModelAndView("profile"); }
 
+	@RequestMapping("/addfriend")
+	public ModelAndView addfriend() { return new ModelAndView("addfriend"); }
+
 	@RequestMapping("/dashboard")
 	public ModelAndView userDashboard() {
 		return new ModelAndView("dashboard");

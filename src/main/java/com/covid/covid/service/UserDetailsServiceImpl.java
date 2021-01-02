@@ -6,6 +6,8 @@ import java.util.Set;
 
 import com.covid.covid.model.Role;
 import com.covid.covid.model.User;
+import com.covid.covid.repository.FriendshipRepository;
+import com.covid.covid.repository.NotificationRepository;
 import com.covid.covid.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +21,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UsersRepository usersRepository;
+
+	@Autowired
+	private FriendshipRepository friendshipRepository;
+
+	@Autowired
+	private NotificationRepository notificationRepository;
 
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;

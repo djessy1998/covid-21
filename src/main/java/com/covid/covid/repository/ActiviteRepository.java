@@ -1,0 +1,15 @@
+package com.covid.covid.repository;
+
+import com.covid.covid.model.Activite;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+public interface ActiviteRepository extends JpaRepository<Activite, Long> {
+
+    @Query("SELECT a FROM Activite a WHERE a.idUser = :idUser")
+    List<Activite> findActivite(@Param("idUser") int idUser);
+
+}

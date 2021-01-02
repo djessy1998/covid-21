@@ -1,5 +1,4 @@
 <%@ page import="com.covid.covid.model.User" %>
-<%@ page import="org.springframework.security.core.Authentication" %>
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
 <%--
   Created by IntelliJ IDEA.

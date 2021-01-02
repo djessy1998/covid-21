@@ -9,14 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
 public class User implements UserDetails {
@@ -37,6 +30,12 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     Set<Role> roles;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    Set<Friendship> friends;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    Set<Notification> notifications;
 
     public long getUserId() {
         return userId;
@@ -135,6 +134,14 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public Set<Friendship> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Friendship> friends) {
+        this.friends = friends;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -149,5 +156,13 @@ public class User implements UserDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Set<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(Set<Notification> notifications) {
+        this.notifications = notifications;
     }
 }
