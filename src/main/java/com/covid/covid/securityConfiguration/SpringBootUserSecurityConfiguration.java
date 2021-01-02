@@ -39,7 +39,10 @@ public class SpringBootUserSecurityConfiguration extends WebSecurityConfigurerAd
 				.failureHandler(failureHandler)
 				.defaultSuccessUrl("/dashboard", true)
 			.permitAll()
-			.and().logout().logoutSuccessUrl("/login");
+			.and().logout().deleteCookies("JSESSIONID").
+				logoutSuccessUrl("/login")
+				.and()
+				.rememberMe().key("uniqueAndSecret");
 		
 		http.csrf().disable();
 	}
