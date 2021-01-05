@@ -1,7 +1,7 @@
 package com.covid.covid.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -10,9 +10,11 @@ public class Activite {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private String idActivite;
+    private int idActivite;
 
     private int idUser;
+
+    private String nom;
 
     private Date date;
 
@@ -20,14 +22,15 @@ public class Activite {
 
     private int heureFin;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,
+               cascade=CascadeType.ALL)
     private List<Lieu> listeLieux;
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.idActivite = id;
     }
 
-    public String getId() {
+    public int getId() {
         return idActivite;
     }
 
@@ -69,5 +72,13 @@ public class Activite {
 
     public void setListeLieux(List<Lieu> listeLieux) {
         this.listeLieux = listeLieux;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

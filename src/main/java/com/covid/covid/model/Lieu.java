@@ -10,17 +10,19 @@ public class Lieu {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private String idLieu;
+    private int idLieu;
 
     private String denomination;
 
     private String adresse;
 
-    public void setIdLieu(String idLieu) {
+    private String nomActivite;
+
+    public void setIdLieu(int idLieu) {
         this.idLieu = idLieu;
     }
 
-    public String getIdLieu() {
+    public int getIdLieu() {
         return idLieu;
     }
 
@@ -38,5 +40,13 @@ public class Lieu {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public String getNomActivite() {
+        return nomActivite;
+    }
+
+    public void setNomActivite(String nomActivite) {
+        this.nomActivite = nomActivite;
     }
 }

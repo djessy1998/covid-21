@@ -18,9 +18,34 @@
 <h2>You are in Spring Boot User DashBoard Page</h2>
 
 <c:forEach var="item" items="${activites}" varStatus="row">
-    <h2>${item.date}</h2>
-    <h3>${item.heureDebut}h - ${item.heureFin}h</h3>
+    <h3>${item.nom} | ${item.date} | ${item.heureDebut}h - ${item.heureFin}h</h3>
 </c:forEach>
+
+<form method="POST" action="/dashboard/addActivity">
+
+
+    <label>
+        Name of the activity
+        <input type="text" name="nom">
+    </label>
+
+    <label for="date">
+        Date of the activity
+    </label>
+    <input type="text" placeholder="yyyy-mm-dd" id="date" name="date">
+
+    <label>
+        Start hour
+        <input type="number" min="0" max="24" name="heureDebut"/>
+    </label>
+
+    <label>
+        End hour
+        <input type="number" min="0" max="24" name="heureFin"/>
+    </label>
+
+    <input type="submit" name="submit" value="+"/>
+</form>
 
 <br><a href="/logout">Logout</a>
 
