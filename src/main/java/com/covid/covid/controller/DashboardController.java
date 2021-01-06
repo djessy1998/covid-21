@@ -44,6 +44,14 @@ public class DashboardController {
         return "redirect:/activityPlace";
     }
 
+    @PostMapping("/positive")
+    public String positive(Model model) {
+
+
+
+        return "redirect:/dashboard";
+    }
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String afficherActivites(Model model) {
 

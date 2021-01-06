@@ -51,7 +51,10 @@
 
 <a href="/profile">Profile</a>
 <a href="/addfriend">Add a friend</a>
-<a href="/dashboard">My test is positive</a>
+
+<form action="/positive" method="post">
+    <input type="submit" name="positive" value="My test is positive"/>
+</form>
 
 </body>
 </html>
