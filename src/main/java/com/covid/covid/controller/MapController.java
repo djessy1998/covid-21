@@ -35,6 +35,9 @@ public class MapController {
 	@RequestMapping("/modifyprofile")
 	public ModelAndView modifyprofile() { return new ModelAndView("modifyprofile"); }
 
+	@RequestMapping("/admin/deleteUsers")
+	public ModelAndView deleteUsers() { return new ModelAndView("admin/deleteUsers"); }
+
 	@RequestMapping("/addfriend")
 	public ModelAndView addfriend() { return new ModelAndView("addfriend"); }
 
