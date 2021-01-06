@@ -22,10 +22,6 @@ public class Activite {
 
     private int heureFin;
 
-    @OneToMany(fetch = FetchType.EAGER,
-               cascade=CascadeType.ALL)
-    private List<Lieu> listeLieux;
-
     public void setId(int id) {
         this.idActivite = id;
     }
@@ -64,14 +60,6 @@ public class Activite {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
-    }
-
-    public List<Lieu> getListeLieux() {
-        return listeLieux;
-    }
-
-    public void setListeLieux(List<Lieu> listeLieux) {
-        this.listeLieux = listeLieux;
     }
 
     public String getNom() {

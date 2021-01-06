@@ -20,6 +20,9 @@ public class deletePlacesController {
     @Autowired
     private LieuRepository lieuRepository;
 
+    @Autowired
+    private ActiviteRepository activiteRepository;
+
     @RequestMapping(value = "admin/deletePlaces", method = RequestMethod.GET)
     public String displayPlaces(Model model) {
 
@@ -36,6 +39,8 @@ public class deletePlacesController {
         List<Lieu> _places = lieuRepository.findLieuByIdLieu(id);
 
         lieuRepository.delete(_places.get(0));
+
+        List<Activite> _activitesLie = null;
 
         return "redirect:/admin/deletePlaces";
     }

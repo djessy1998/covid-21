@@ -17,4 +17,7 @@ public interface LieuRepository extends JpaRepository<Lieu, Long> {
     @Query("SELECT l FROM Lieu l WHERE l.idLieu = :id")
     List<Lieu> findLieuByIdLieu(@Param("id") int id);
 
+    @Query("select case when count(l)> 0 then true else false end from Lieu l where lower(l.denomination) like lower(:denom)")
+    boolean existsLieuByDenomination(@Param("denom") String denom);
+
 }

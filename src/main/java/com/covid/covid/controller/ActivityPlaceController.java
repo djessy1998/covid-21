@@ -33,6 +33,8 @@ public class ActivityPlaceController {
 
     private List<Lieu> lieux;
 
+    private Lieu myPlace;
+
     private String nom;
     private String date;
     private int heureDebut;
@@ -41,6 +43,8 @@ public class ActivityPlaceController {
 
     @RequestMapping(value = "/activityPlace", method = RequestMethod.GET)
     public String lieu(Model model, RedirectAttributes redirectAttributes) {
+
+        myPlace = new Lieu();
 
         if(this.nom == null){
             this.nom = (String) model.asMap().get("nom");
@@ -57,12 +61,14 @@ public class ActivityPlaceController {
             model.addAttribute("lieux", lieux);
         }
 
+        model.addAttribute("myPlace", myPlace);
 
         return "activityPlace";
     }
 
-    @PostMapping("/addActivity")
-    public String addActivity(Model model, Request request) {
+    @RequestMapping(value="/saveActivity")
+    public String addActivity(@ModelAttribute("myPlace") Lieu lieuForm,
+                              Model model, Request request) {
 
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -78,9 +84,9 @@ public class ActivityPlaceController {
             activite.setHeureDebut(heureDebut);
             activite.setHeureFin(heureFin);
             activite.setIdUser((int)principal.getUserId());
-            activite.setListeLieux(this.lieux);
 
             activiteRepository.save(activite);
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -94,17 +100,14 @@ public class ActivityPlaceController {
                           Model model,
                           RedirectAttributes redirectAttributes) {
 
-        if(this.activiteEnCours == null){
-            this.activiteEnCours = new Activite();
-            this.lieux = new ArrayList<>();
-        }
+        this.lieux = new ArrayList<>();
 
         Lieu l = new Lieu();
         l.setAdresse(adresse);
         l.setDenomination(nom);
         l.setNomActivite(this.nom);
 
-        this.lieux.add(l);
+        this.lieuRepository.save(l);
 
         List<Lieu> lieux = lieuRepository.findLieuByNomActivite(this.nom);
         this.lieux.addAll(lieux);

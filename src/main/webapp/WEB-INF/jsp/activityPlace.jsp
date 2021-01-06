@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: djessyrossi
@@ -13,20 +14,18 @@
 </head>
 <body>
 
-<form method="POST" action="/addActivity">
+<form:form action="/saveActivity" modelAttribute="myPlace">
 
     <label>
         List of places
-        <select name="lieuOption">
-            <c:forEach var="lieu" items="${lieux}" varStatus="row">
-                <option>${lieu.denomination}</option>
-            </c:forEach>
-        </select>
+        <form:select path="idLieu">
+            <form:options items="${lieux}" itemValue="idLieu" itemLabel="denomination" />
+        </form:select>
     </label>
 
     Valider le lieu : <input type="submit" name="submit" value="✓"/>
 
-</form>
+</form:form>
 
 <form method="POST" action="/addPlace">
 
