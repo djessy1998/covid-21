@@ -80,10 +80,15 @@ public class ActivityPlaceController {
             java.util.Date parsed = format.parse(date);
             java.sql.Date sql = new java.sql.Date(parsed.getTime());
 
+            List<Lieu> lieux = lieuRepository.findLieuByIdLieu(lieuForm.getIdLieu());
+            Lieu l = lieux.get(0);
+
             activite.setDate(sql);
             activite.setHeureDebut(heureDebut);
             activite.setHeureFin(heureFin);
-            activite.setIdUser((int)principal.getUserId());
+            activite.setUserId((int)principal.getUserId());
+            activite.setIdLieu(l.getIdLieu());
+            activite.setNomLieu(l.getDenomination());
 
             activiteRepository.save(activite);
 

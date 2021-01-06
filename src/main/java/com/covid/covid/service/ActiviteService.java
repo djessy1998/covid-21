@@ -25,7 +25,7 @@ public class ActiviteService {
         activite.setHeureDebut(heureDebut);
         activite.setHeureFin(heureFin);
         activite.setNom(nom);
-        activite.setIdUser((int)principal.getUserId());
+        activite.setUserId((int)principal.getUserId());
 
         return activiteRepository.save(activite);
     }

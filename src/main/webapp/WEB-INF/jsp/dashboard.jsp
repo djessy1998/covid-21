@@ -19,6 +19,7 @@
 
 <c:forEach var="item" items="${activites}" varStatus="row">
     <h3>${item.nom} | ${item.date} | ${item.heureDebut}h - ${item.heureFin}h</h3>
+    <h4>Lieu - ${item.nomLieu}</h4>
 </c:forEach>
 
 <form method="POST" action="/dashboard/addActivity">
@@ -51,6 +52,8 @@
 
 <a href="/profile">Profile</a>
 <a href="/addfriend">Add a friend</a>
+<br>
+<a href="/dashboard/notifications">Notifications : ${NbNotifications}</a>
 
 <form action="/positive" method="post">
     <input type="submit" name="positive" value="My test is positive"/>

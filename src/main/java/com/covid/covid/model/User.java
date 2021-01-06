@@ -35,6 +35,9 @@ public class User implements UserDetails {
     Set<Friendship> friends;
 
     @OneToMany(fetch = FetchType.EAGER)
+    Set<Activite> activites;
+
+    @OneToMany(fetch = FetchType.EAGER)
     Set<Notification> notifications;
 
     public long getUserId() {
@@ -160,6 +163,14 @@ public class User implements UserDetails {
 
     public Set<Notification> getNotifications() {
         return notifications;
+    }
+
+    public Set<Activite> getActivites() {
+        return activites;
+    }
+
+    public void setActivites(Set<Activite> activites) {
+        this.activites = activites;
     }
 
     public void setNotifications(Set<Notification> notifications) {

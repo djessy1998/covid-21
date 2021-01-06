@@ -12,9 +12,13 @@ public class Activite {
     @Id
     private int idActivite;
 
-    private int idUser;
+    private int userId;
+
+    private int idLieu;
 
     private String nom;
+
+    private String nomLieu;
 
     private Date date;
 
@@ -54,13 +58,6 @@ public class Activite {
         this.heureFin = heureFin;
     }
 
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
 
     public String getNom() {
         return nom;
@@ -68,5 +65,29 @@ public class Activite {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public int getIdLieu() {
+        return idLieu;
+    }
+
+    public void setIdLieu(int idLieu) {
+        this.idLieu = idLieu;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getNomLieu() {
+        return nomLieu;
+    }
+
+    public void setNomLieu(String nomLieu) {
+        this.nomLieu = nomLieu;
     }
 }

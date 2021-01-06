@@ -9,12 +9,10 @@ import java.util.List;
 
 public interface ActiviteRepository extends JpaRepository<Activite, Long> {
 
-    @Query("SELECT a FROM Activite a WHERE a.idUser = :idUser")
+    @Query("SELECT a FROM Activite a WHERE a.userId = :idUser")
     List<Activite> findActivite(@Param("idUser") int idUser);
 
     @Query("SELECT a FROM Activite a WHERE a.idActivite = :id")
     List<Activite> findActiviteById(@Param("id") int id);
-
-
 
 }

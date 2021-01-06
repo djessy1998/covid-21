@@ -1,6 +1,7 @@
 package com.covid.covid.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,6 +29,9 @@ public class MapController {
 	public ModelAndView register() {
 		return new ModelAndView("register");
 	}
+
+	@RequestMapping("/dashboard/notifications")
+	public ModelAndView notifications() { return new ModelAndView("notifications"); }
 
 	@RequestMapping("/profile")
 	public ModelAndView profile() { return new ModelAndView("profile"); }
