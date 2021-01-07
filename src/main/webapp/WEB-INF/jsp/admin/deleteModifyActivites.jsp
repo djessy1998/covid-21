@@ -19,6 +19,18 @@
         <input id="id" name="id" type="hidden" value="${activity.id}">
         <button>Delete the activity</button>
     </form>
+
+    <form method="POST" action="/admin/modifyActivity">
+        <input id="activityModify" name="activityModify" type="hidden" value="${activity.id}">
+        <label for="date">Date : </label>
+        <input id="date" name="date" value="${activity.date}">
+        <label for="heureDebut">Hour start : </label>
+        <input id="heureDebut" name="heureDebut" value="${activity.heureDebut}">
+        <label for="heureFin">Hour end : </label>
+        <input id="heureFin" name="heureFin" value="${activity.heureFin}">
+        <button type="submit">Modify the activity</button>
+    </form>
+
 </c:forEach>
 
 

@@ -23,14 +23,14 @@ public class deletePlacesController {
     @Autowired
     private ActiviteRepository activiteRepository;
 
-    @RequestMapping(value = "admin/deletePlaces", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/deleteModifyPlaces", method = RequestMethod.GET)
     public String displayPlaces(Model model) {
 
         List<Lieu> lieux = lieuRepository.findAll();
 
         model.addAttribute("lieux", lieux);
 
-        return "deleteModifyPlaces";
+        return "admin/deleteModifyPlaces";
     }
 
     @PostMapping("/admin/deletePlaces")
@@ -38,9 +38,15 @@ public class deletePlacesController {
 
         List<Lieu> _places = lieuRepository.findLieuByIdLieu(id);
 
-        lieuRepository.delete(_places.get(0));
+        Lieu lieu = _places.get(0);
 
-        List<Activite> _activitesLie = null;
+        List<Activite> _activite = activiteRepository.findActiviteByNomLieu(lieu.getDenomination());
+
+        for(Activite activite : _activite){
+            activiteRepository.delete(activite);
+        }
+
+        lieuRepository.delete(lieu);
 
         return "admin/deleteModifyPlaces";
     }

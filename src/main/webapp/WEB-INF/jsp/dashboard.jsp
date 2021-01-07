@@ -52,7 +52,6 @@
 
 <a href="/profile">Profile</a>
 <a href="/addfriend">Add a friend</a>
-<br>
 <a href="/dashboard/notifications">Notifications : ${NbNotifications}</a>
 
 <form action="/positive" method="post">

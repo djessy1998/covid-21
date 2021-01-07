@@ -17,8 +17,8 @@
 <h2>You are in Spring Boot Admin DashBoard Page</h2>
 <br><a href="/admin/logout">logout</a>
 <br><a href="/admin/deleteModifyUsers">Delete or modify users</a>
-<br><a href="/admin/deletePlaces">Delete or modify places</a>
-<br><a href="/admin/deleteActivites">Delete or modify activities</a>
+<br><a href="/admin/deleteModifyPlaces">Delete or modify places</a>
+<br><a href="/admin/deleteModifyActivites">Delete or modify activities</a>
 
 </body>
 </html>

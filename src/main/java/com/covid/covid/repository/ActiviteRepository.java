@@ -15,4 +15,7 @@ public interface ActiviteRepository extends JpaRepository<Activite, Long> {
     @Query("SELECT a FROM Activite a WHERE a.idActivite = :id")
     List<Activite> findActiviteById(@Param("id") int id);
 
+    @Query("SELECT a FROM Activite a WHERE a.nomLieu = :nomLieu")
+    List<Activite> findActiviteByNomLieu(@Param("nomLieu") String nomLieu);
+
 }
