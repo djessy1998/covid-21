@@ -11,4 +11,5 @@ public class SpringBootConfiguration {
 		return new BCryptPasswordEncoder();
 	}
 
+
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(value="/modifyprofile")
@@ -70,4 +71,14 @@ public class ModifyprofileController {
         return "/modifyprofile";
     }
 
+    @RequestMapping(value = "/saveImage", method= RequestMethod.POST)
+    public String saveImage(@RequestParam("image") MultipartFile image){
+        final User user =
+                (User) SecurityContextHolder.getContext()
+                        .getAuthentication()
+                        .getPrincipal();
+
+        userService.changeImage(user, image);
+        return "/modifyprofile";
+    }
 }

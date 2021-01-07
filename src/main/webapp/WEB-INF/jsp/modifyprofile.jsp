@@ -36,6 +36,14 @@
 <input type="submit" name="submit" value="✓"/>
 </form>
 
+<form method="POST" action="/modifyprofile/saveImage" enctype="multipart/form-data">
+    Image : <input type="File" name="image" />
+    <input type="submit" name="submit" value="✓"/>
+</form>
+
+    <p> Votre image est actuellement : </p>
+    <img alt="image_profil" th:src="*{'data:image/jpeg;base64,' +image}" />
+
     <hr>
 
     <form method="POST" action="/modifyprofile/savePassword">
@@ -50,6 +58,6 @@
 
 
 </sec:authorize>
-
+    <script src="js/jquery-3.1.1.min.js"></script>
 </body>
 </html>

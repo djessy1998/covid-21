@@ -1,5 +1,8 @@
 package com.covid.covid.service;
-
+import java.io.IOException;
+import java.util.Base64;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
 
 	@Autowired
 	private UsersRepository usersRepository;
@@ -86,6 +90,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		} else {
 			throw new UsernameNotFoundException("User Name is not Found");
+		}
+	}
+
+	public void changeImage(User user, MultipartFile file){
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		if (fileName.contains("..")){
+			return; // nom de fichier non valide, on part
+		}
+
+		try {
+			user.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+			usersRepository.save(user);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

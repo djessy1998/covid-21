@@ -24,6 +24,9 @@ public class User implements UserDetails {
     private boolean accountExpired;
     private boolean accountLocked;
     private boolean credentialsExpired;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private String image;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
@@ -175,5 +178,13 @@ public class User implements UserDetails {
 
     public void setNotifications(Set<Notification> notifications) {
         this.notifications = notifications;
+    }
+
+    public void setImage(String image){
+        this.image = image;
+    }
+
+    public String getImage(){
+        return image;
     }
 }
