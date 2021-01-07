@@ -85,6 +85,7 @@ public class DashboardController {
             n.setIdReceveur((int)u.getUserId());
 
             n.setType("PASSIVE");
+            n.setVue(false);
 
             notificationRepository.save(n);
 
@@ -98,7 +99,7 @@ public class DashboardController {
 
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        List<Notification> notifications = notificationRepository.findNotifications((int)principal.getUserId());
+        List<Notification> notifications = notificationRepository.findPassiveNotificationsNotViewed((int)principal.getUserId());
 
         List<Activite> activites = activiteRepository.findActivite((int)principal.getUserId());
 

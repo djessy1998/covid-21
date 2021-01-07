@@ -20,4 +20,8 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     @Query("SELECT n FROM Notification n WHERE n.idReceveur = :idUser and n.type = 'PASSIVE'")
     List<Notification> findPassiveNotifications(@Param("idUser") int idUser);
 
+    @Query("SELECT n FROM Notification n WHERE n.idReceveur = :idUser and n.type = 'PASSIVE' " +
+            "and n.vue = false")
+    List<Notification> findPassiveNotificationsNotViewed(@Param("idUser") int idUser);
+
 }

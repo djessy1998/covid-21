@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: djessyrossi
@@ -11,6 +12,13 @@
     <title>Notifications</title>
 </head>
 <body>
+
+<h1>List of notifications</h1>
+
+<c:forEach var="item" items="${notifications}" varStatus="row">
+    <h3>${item.id} - ${item.contenu}</h3>
+</c:forEach>
+
 
 </body>
 </html>

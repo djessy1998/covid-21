@@ -17,6 +17,8 @@ public class Notification {
 
     private int idReceveur;
 
+    private boolean vue;
+
     private String type;
 
     private String contenu;
@@ -69,5 +71,13 @@ public class Notification {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public boolean isVue() {
+        return vue;
+    }
+
+    public void setVue(boolean vue) {
+        this.vue = vue;
     }
 }
