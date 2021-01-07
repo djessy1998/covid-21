@@ -2,7 +2,6 @@ package com.covid.covid.controller;
 
 
 import com.covid.covid.model.Activite;
-import com.covid.covid.model.User;
 import com.covid.covid.repository.ActiviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,7 @@ public class deleteActivitesController {
 
         model.addAttribute("activites", activites);
 
-        return "admin/deleteActivites";
+        return "deleteModifyActivites";
     }
 
     @PostMapping("/admin/deleteActivites")
@@ -37,7 +36,7 @@ public class deleteActivitesController {
 
         activiteRepository.delete(_activite.get(0));
 
-        return "redirect:/admin/deleteActivites";
+        return "admin/deleteModifyActivites";
     }
 
 }

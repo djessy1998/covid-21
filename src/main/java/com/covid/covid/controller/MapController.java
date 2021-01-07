@@ -1,9 +1,7 @@
 package com.covid.covid.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -40,7 +38,13 @@ public class MapController {
 	public ModelAndView modifyprofile() { return new ModelAndView("modifyprofile"); }
 
 	@RequestMapping("/admin/deleteUsers")
-	public ModelAndView deleteUsers() { return new ModelAndView("admin/deleteUsers"); }
+	public ModelAndView deleteUsers() { return new ModelAndView("deleteModifyUsers"); }
+
+	@RequestMapping("/admin/deletePlaces")
+	public ModelAndView deletePlaces() { return new ModelAndView("deleteModifyPlaces"); }
+
+	@RequestMapping("/admin/deleteActivites")
+	public ModelAndView deleteActivites() { return new ModelAndView("deleteModifyActivites"); }
 
 	@RequestMapping("/addfriend")
 	public ModelAndView addfriend() { return new ModelAndView("addfriend"); }

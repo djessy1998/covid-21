@@ -30,7 +30,7 @@ public class deletePlacesController {
 
         model.addAttribute("lieux", lieux);
 
-        return "admin/deletePlaces";
+        return "deleteModifyPlaces";
     }
 
     @PostMapping("/admin/deletePlaces")
@@ -42,7 +42,7 @@ public class deletePlacesController {
 
         List<Activite> _activitesLie = null;
 
-        return "redirect:/admin/deletePlaces";
+        return "admin/deleteModifyPlaces";
     }
 
 }

@@ -19,6 +19,15 @@
         <input id="user" name="user" type="hidden" value="${user.username}">
         <button>Delete the user</button>
     </form>
+
+    <form method="POST" action="/admin/modifyUser">
+        <input id="userModify" name="userModify" type="hidden" value="${user.username}">
+        <label for="firstName">Firstname : </label>
+        <input id="firstName" name="firstName" value="${user.firstName}">
+        <label for="lastName">Lastname : </label>
+        <input id="lastName" name="lastName" value="${user.lastName}">
+        <button type="submit">Modify the user</button>
+    </form>
 </c:forEach>
 
 
