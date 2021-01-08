@@ -33,7 +33,7 @@ public class SpringBootUserSecurityConfiguration extends WebSecurityConfigurerAd
 		http
 			.antMatcher("/**")
 			.authorizeRequests().
-				antMatchers("/register").permitAll()
+				antMatchers("/register", "/help").permitAll()
 				.anyRequest().authenticated()
 			.and().formLogin().loginPage("/login")
 				.failureHandler(failureHandler)

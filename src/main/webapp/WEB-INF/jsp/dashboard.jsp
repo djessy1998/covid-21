@@ -9,54 +9,182 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Covid</title>
+
+
+    <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <style><%@include file="/WEB-INF/css/skeleton/normalize.css"%></style>
+    <style><%@include file="/WEB-INF/css/skeleton/skeleton.css"%></style>
+
 </head>
 <body>
+<div class="container">
 
-<h1>Welcome to Spring Boot User DashBoard</h1>
+<!-- Header -->
+<div class="container">
+    <div class="row">
+        <div class="one column">
+            <a href="/logout" style="text-decoration: none; text-decoration-color: #bbbbbb" title="Log out">
+                <h4>ｘ</h4>
+            </a>
+        </div>
+        <div class="ten columns">
+            <div style="text-align: center;">
+                <h2 class="title">Covid</h2>
+            </div>
+        </div>
 
-<h2>You are in Spring Boot User DashBoard Page</h2>
+        <div class="one column">
+            <a href="/help" style="text-decoration: none; text-decoration-color: #bbbbbb" title="Help">
+                <h4>?</h4>
+            </a>
+        </div>
+    </div>
 
-<c:forEach var="item" items="${activites}" varStatus="row">
-    <h3>${item.nom} | ${item.date} | ${item.heureDebut}h - ${item.heureFin}h</h3>
-    <h4>Lieu - ${item.nomLieu}</h4>
-</c:forEach>
-
-<form method="POST" action="/dashboard/addActivity">
+</div>
+    <hr>
+<!-- End of header -->
 
 
-    <label>
-        Name of the activity
-        <input type="text" name="nom">
-    </label>
+    <div class="container">
+        <div class="row">
+            <h6>Welcome to your dashboard.</h6>
+        </div>
+    </div>
 
-    <label for="date">
-        Date of the activity
-    </label>
-    <input type="text" placeholder="yyyy-mm-dd" id="date" name="date">
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <div class="four columns">
+                <img src="/images/chat.png">
+                <p>
+                    Add a friend
 
-    <label>
-        Start hour
-        <input type="number" min="0" max="24" name="heureDebut"/>
-    </label>
+                </p>
+            </div>
 
-    <label>
-        End hour
-        <input type="number" min="0" max="24" name="heureFin"/>
-    </label>
+            <div class="four columns">
+                <img src="/images/profile.png">
+                <p>
+                    <a href="/profile" style="text-decoration: none;">
+                        My profile
+                    </a>
+                </p>
+            </div>
 
-    <input type="submit" name="submit" value="+"/>
-</form>
+            <div class="four columns">
+                <img src="/images/world.png">
+                <p>
+                    <a href="/dashboard/notifications" style="text-decoration: none;">
+                        Notifications(${NbNotifications})
+                    </a>
+                </p>
+            </div>
 
-<br><a href="/logout">Logout</a>
+        </div>
+    </div>
 
-<a href="/profile">Profile</a>
-<a href="/addfriend">Add a friend</a>
-<a href="/dashboard/notifications">Notifications : ${NbNotifications}</a>
+<br><br><br>
 
-<form action="/positive" method="post">
-    <input type="submit" name="positive" value="My test is positive"/>
-</form>
+<div class="container">
+    <div class="row" style="text-align: center;">
+        <form action="/positive" method="post">
+            <input class="button-primary"
+                   type="submit"
+                   name="positive"
+                   value="My test is positive"/>
+        </form>
+    </div>
+</div>
 
+
+<br><br><br> <hr>
+
+    <!-- Tableau d'activités -->
+    <div class="container" >
+        <div class="row" style="text-align: center;"><h5>My activities</h5></div>
+
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Place</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="item" items="${activites}" varStatus="row">
+                <tr>
+                    <td>${item.nom}</td>
+                    <td>${item.date}</td>
+                    <td>${item.heureDebut}h - ${item.heureFin}h</td>
+                    <td>${item.nomLieu}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+    </div>
+
+    <br><br><br>
+
+    <!-- Ajout d'une activité -->
+    <div class="container">
+        <div class="row">
+            <h6>Add an activity : </h6>
+        </div>
+        <form method="POST" action="/dashboard/addActivity">
+            <div class="row">
+                <div class="seven columns">
+                    <label>
+                        Name of the activity :
+                        <input class="u-full-width" type="text" name="nom" required>
+                    </label>
+                </div>
+
+                <div class="five columns" style="text-align: center">
+                    <label>
+                        Start hour : <br>
+                        <input type="number" min="0" max="24" name="heureDebut" required/>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="seven columns">
+                    <label for="date">
+                        Date of the activity
+                    </label>
+                    <input type="text" placeholder="yyyy-mm-dd" id="date" name="date" required>
+                </div>
+                <div class="five columns" style="text-align: center">
+                    <label>
+                        End hour : <br>
+                        <input type="number" min="0" max="24" name="heureFin" required/>
+                    </label>
+                </div>
+            </div>
+
+
+            <input class="button-primary" type="submit" name="submit" value="Let's find a place"/>
+        </form>
+    </div>
+
+
+
+
+
+
+</div><!-- End of container of the whole page -->
 </body>
 </html>

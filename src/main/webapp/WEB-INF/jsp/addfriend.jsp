@@ -1,4 +1,6 @@
 <%--
+    PAGE NON UTILISÉE
+
   Created by IntelliJ IDEA.
   User: djessyrossi
   Date: 02/01/2021

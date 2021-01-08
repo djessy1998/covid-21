@@ -23,6 +23,9 @@ public class MapController {
 		return new ModelAndView("logout");
 	}
 
+	@RequestMapping("help")
+	public ModelAndView help() { return new ModelAndView("help"); }
+
 	@RequestMapping("/register")
 	public ModelAndView register() {
 		return new ModelAndView("register");
