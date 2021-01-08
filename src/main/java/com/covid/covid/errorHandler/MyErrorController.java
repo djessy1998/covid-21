@@ -26,6 +26,8 @@ class MyErrorController implements ErrorController {
 
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 return "errors/404";
+            }else {
+                return "errors/base";
             }
         }
 
