@@ -105,6 +105,12 @@
     </div>
 </div>
 
+    <c:if test="${isAdmin}">
+        <div class="container" style="text-align: center">
+            <a class="button" href="/admin/dashboard">Admin mode</a>
+        </div>
+    </c:if>
+
 
 <br><br><br> <hr>
 
@@ -117,7 +123,7 @@
             <tr>
                 <th>Name</th>
                 <th>Date</th>
-                <th>Hours</th>
+                <th>Time</th>
                 <th>Place</th>
             </tr>
             </thead>
@@ -153,7 +159,7 @@
 
                 <div class="five columns" style="text-align: center">
                     <label>
-                        Start hour : <br>
+                        Start time : <br>
                         <input type="number" min="0" max="24" name="heureDebut" required/>
                     </label>
                 </div>
@@ -169,7 +175,7 @@
                 </div>
                 <div class="five columns" style="text-align: center">
                     <label>
-                        End hour : <br>
+                        End time : <br>
                         <input type="number" min="0" max="24" name="heureFin" required/>
                     </label>
                 </div>
@@ -179,8 +185,6 @@
             <input class="button-primary" type="submit" name="submit" value="Let's find a place"/>
         </form>
     </div>
-
-
 
 
 

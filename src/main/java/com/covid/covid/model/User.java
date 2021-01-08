@@ -5,9 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -90,6 +88,16 @@ public class User implements UserDetails {
             }
         }
         return _grntdAuths;
+    }
+
+    public boolean isAdmin(){
+        Set<Role> roles = this.getRoles();
+        List<String> list = new ArrayList<>(3);
+        for (Role r : roles){
+            list.add(r.getRoleName());
+        }
+
+        return list.get(0).equals("ADMIN");
     }
 
     public String getPassword() {

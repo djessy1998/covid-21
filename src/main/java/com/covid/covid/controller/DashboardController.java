@@ -106,6 +106,7 @@ public class DashboardController {
         model.addAttribute("activites", activites);
         model.addAttribute("notifications", notifications);
         model.addAttribute("NbNotifications", notifications.size());
+        model.addAttribute("isAdmin", principal.isAdmin());
 
         return "dashboard";
     }

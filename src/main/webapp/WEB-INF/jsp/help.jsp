@@ -65,7 +65,7 @@
     <p><b>Source des images : </b> Freepik</p>
     <br>
     <br>
-    <p>Djessy ROSSI, Diana POP</p>
+    <p>Djessy ROSSI, Diana POP, https://github.com/djessy1998/covid-21</p>
     <p>Université de Lorraine (2020-2021), Faculté des sciences et de technologies de Nancy (FST)</p>
 
 </div> <!-- Fin container de toute la page -->
