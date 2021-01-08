@@ -41,8 +41,10 @@
     <input type="submit" name="submit" value="✓"/>
 </form>
 
+
     <p> Votre image est actuellement : </p>
-    <img alt="image_profil" th:src="*{'data:image/jpeg;base64,' +image}" />
+
+    <img alt="image_profil" src="data:image/jpeg;base64,${image}" />
 
     <hr>
 
