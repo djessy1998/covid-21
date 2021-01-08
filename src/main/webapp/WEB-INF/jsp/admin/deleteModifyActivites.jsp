@@ -57,7 +57,7 @@
 
     <!-- Tableau d'activités -->
     <div class="container" >
-        <div class="row" style="text-align: center;"><h5>Users</h5></div>
+        <div class="row" style="text-align: center;"><h5>Activities</h5></div>
 
         <table class="u-max-full-width">
             <thead>

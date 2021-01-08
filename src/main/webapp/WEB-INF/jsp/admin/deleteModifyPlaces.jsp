@@ -61,7 +61,7 @@
 
 <!-- Tableau de lieux  -->
 <div class="container" >
-    <div class="row" style="text-align: center;"><h5>My activities</h5></div>
+    <div class="row" style="text-align: center;"><h5>Places</h5></div>
 
     <table class="u-full-width">
         <thead>
