@@ -48,7 +48,7 @@ public class deletePlacesController {
 
         lieuRepository.delete(lieu);
 
-        return "admin/deleteModifyPlaces";
+        return "redirect:/admin/deleteModifyPlaces";
     }
 
 }
